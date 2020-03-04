@@ -6,24 +6,6 @@
 //  Copyright © 2020 Victor Melo. All rights reserved.
 //
 
-/*
- 
- - uma view por pétala (6 pétalas)
-    - círculo
-    - animações:
-        - scale
- - uma view que compõe as pétalas
-    - animações:
-        - girar
- 
- Baby steps:
- - Criar uma pétala com degradê e opacidade
- - Fazer a pétala aumentar e diminuir (com eixo em baixo)
- - Criar 6 pétalas rotacionando em torno de um eixo central
- - Fazer o merge da pétala ser cor somativa (fica branca)
- 
- */
-
 import SwiftUI
 
 extension Animation {
@@ -48,7 +30,7 @@ struct Petal: View {
         Circle()
             .fill(LinearGradient(gradient: petalGradient, startPoint: .top, endPoint: .bottom))
             .scaleEffect(isSmall ? 1 : 2, anchor: .top)
-            .opacity(0.1)
+            .opacity(0.7)
             .blendMode(.plusLighter)
             .position(x: geometry.size.width/2, y: isSmall ? geometry.size.height/2 : geometry.size.height)
             .onAppear {
@@ -61,7 +43,7 @@ struct Petal: View {
 
 struct Flower: View {
     
-    let numberOfPetals = 32
+    let numberOfPetals = 6
     
     @State private var isSmall = true
     
